@@ -55,9 +55,9 @@ chmod +x ./file-server
 # 示例：指定端口+共享路径+多用户+日志路径
 ./file-server \
   -port 8999 \
-  -path /yitu/gosby \
+  -path /gosby \
   -users "user1:123456,user2:Yitu@123,ops:Ops&789" \
-  -logpath /home/yituadmin/gosby/file-to-web/file-server.log
+  -logpath /home/gosby/file-to-web/file-server.log
 ```
 
 #### 后台运行（不中断）
@@ -65,9 +65,9 @@ chmod +x ./file-server
 # nohup后台运行，关闭终端不停止
 nohup ./file-server \
   -port 8999 \
-  -path /yitu/gosby \
+  -path /gosby \
   -users "user1:123456,user2:Yitu@123" \
-  -logpath /home/yituadmin/gosby/file-to-web/file-server.log > /dev/null 2>&1 &
+  -logpath /home/gosby/file-to-web/file-server.log > /dev/null 2>&1 &
 ```
 
 ### 4. 访问服务
@@ -101,9 +101,9 @@ nohup ./file-server \
 ```
 2026/02/12 10:00:00 ===== 文件服务器启动信息 =====
 2026/02/12 10:00:00 访问地址：http://localhost:8999
-2026/02/12 10:00:00 共享路径：/yitu/gosby
+2026/02/12 10:00:00 共享路径：/gosby
 2026/02/12 10:00:00 配置的用户列表：map[user1:123456 user2:Yitu@123]
-2026/02/12 10:00:00 日志文件路径：/home/yituadmin/gosby/file-to-web/file-server.log
+2026/02/12 10:00:00 日志文件路径：/home/gosby/file-to-web/file-server.log
 2026/02/12 10:01:20 [192.168.1.105] 认证成功 - 用户名: user1 (请求路径: /)
 2026/02/12 10:01:20 [192.168.1.105] 文件访问 - 路径: /
 2026/02/12 10:02:15 [10.0.0.5] 认证失败 - 用户名/密码错误 (用户名: test, 请求路径: /)
@@ -117,7 +117,7 @@ nohup ./file-server \
    ```
 2. 添加以下内容：
    ```
-   /home/yituadmin/gosby/file-to-web/file-server.log {
+   /home/gosby/file-to-web/file-server.log {
        daily       # 按天轮转
        rotate 7    # 保留7天日志
        compress    # 压缩旧日志
